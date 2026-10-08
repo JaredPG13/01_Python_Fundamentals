@@ -1,3 +1,4 @@
+# Inventory reorder tool for employees
 # ASK item name, store as item
 item_name = input("Item name? ")
 # ASK units in stock, store as stock
