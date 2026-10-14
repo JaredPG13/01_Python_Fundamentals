@@ -1,2 +1,3 @@
 Day 6: practicing ahead of origin/main
 Ahead means committed but not pushed
+git log and git log --oneline understanding
