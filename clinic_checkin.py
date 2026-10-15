@@ -1,3 +1,14 @@
+def ask_whole_number(question):
+    got_number = "no"
+    while got_number != "yes":
+        reply = input(question)
+        try:
+            reply = int(reply)
+            got_number = "yes"
+        except ValueError:
+            print("Please type a number.")
+    return reply
+
 patient_name = input("Patient Name: (or 'end day' to close for day) ")
 patients = 0
 
@@ -10,14 +21,12 @@ while patient_name.lower() != "end day":
     if new_patient == "y":
         print(f"Ask {patient_name} to fill out the intake form.")
 
-    got_number = "no"
-    while got_number != "yes":
-        minutes_late = input("How many minutes late is the patient? ")
-        try:
-            minutes_late = int(minutes_late)
-            got_number = "yes"
-        except ValueError:
-            print("Please type a number")
+    many_people = ask_whole_number(f"How many people are with {patient_name}? ")
+    
+    co_pay = ask_whole_number(f"What is {patient_name}'s copay? ")
+
+    minutes_late = ask_whole_number(f"How many minutes late is {patient_name}? ")
+
     if minutes_late <= 0:
         print(f"Check in {patient_name}!")
     elif minutes_late <= 15:
