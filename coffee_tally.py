@@ -1,3 +1,13 @@
+def ask_drink_name(question):
+    got_text = "no"
+    while got_text != "yes":
+        reply = input(question)
+        if reply == "":
+           print("Please type a drink name.")
+        else:
+            got_text = "yes"
+    return reply
+
 def ask_whole_number(question):
     got_number = "no"
     while got_number != "yes":
@@ -9,7 +19,7 @@ def ask_whole_number(question):
             print("Please type a number.")
     return reply
 
-drink_name = input("Drink name? (or 'close' to close for day) ")
+drink_name = ask_drink_name("Drink name? (or 'close' to close for day) ")
 drinks = 0
 
 while drink_name.lower() != "close":
@@ -19,6 +29,6 @@ while drink_name.lower() != "close":
     print(f"Added {many_drinks} {drink_name}s")
 
     drinks = drinks + many_drinks
-    drink_name = input("Drink name? (or 'close' to close for day) ")
+    drink_name = ask_drink_name("Drink name? (or 'close' to close for day) ")
 
 print(f"Cups sold today: {drinks}. Closed for the day. ")
