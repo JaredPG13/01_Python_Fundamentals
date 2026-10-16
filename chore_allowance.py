@@ -18,3 +18,28 @@ def ask_yes_no(question):
             print("Please type yes or no")
 #   hand back reply
     return reply
+
+# start a count of chores done at 0
+chores_done = 0
+# start the day counter at 1
+day_counter = 1
+# loop while the day counter is <= 5:
+while day_counter <= 5:
+#   print which day it is
+    print(f"--- Day {day_counter} ---")
+#   ask chore 1 with the card, save it as answer
+    answer = ask_yes_no("Did you wipe down the bathroom counter? ")
+#   if answer is yes:
+    if answer == "yes":
+#       add +1 to chores done
+        chores_done = chores_done + 1
+
+    answer = ask_yes_no("Did you empty the clean dishwasher? ")
+    if answer == "yes":
+        chores_done = chores_done + 1
+
+    answer = ask_yes_no("Did you put dirty dishes in dishwasher? ")
+    if answer == "yes":
+        chores_done = chores_done + 1
+    day_counter = day_counter + 1
+print(chores_done)
