@@ -42,4 +42,21 @@ while day_counter <= 5:
     if answer == "yes":
         chores_done = chores_done + 1
     day_counter = day_counter + 1
-print(chores_done)
+print(f"Chores completed: {chores_done}")
+
+# calculate total for chores missed
+chores_missed = 15 - chores_done
+# print total
+print(f"Chores missed: {chores_missed}")
+# calculate percentage completed
+percentage_completed = round(chores_done/15 * 100)
+# print total
+print(f"Completed: {percentage_completed}%")
+# if chores completed equals 15
+if chores_done == 15:
+#   print $10
+    print("Allowance: $10")
+# otherwise
+else:
+#   print $0
+    print("Allowance: $0")
