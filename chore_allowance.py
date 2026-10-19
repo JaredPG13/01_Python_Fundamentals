@@ -23,31 +23,24 @@ def ask_yes_no(question):
 chores_done = 0
 # start the day counter at 1
 day_counter = 1
-
-chores = ["clean the bathroom counter", "empty the clean dishwasher", "put dirty dishes in dishwasher"]
+chores = ["clean your bathroom", "clean the kitchen", "pick up your room"]
 total_chores = len(chores) * 5
 
 # loop while the day counter is <= 5:
 while day_counter <= 5:
 #   print which day it is
     print(f"--- Day {day_counter} ---")
-#   ask chore 1 with the card, save it as answer
-    answer = ask_yes_no("Did you wipe down the bathroom counter? ")
-#   if answer is yes:
-    if answer == "yes":
-#       add +1 to chores done
-        chores_done = chores_done + 1
 
-    answer = ask_yes_no("Did you empty the clean dishwasher? ")
-    if answer == "yes":
-        chores_done = chores_done + 1
-
-    answer = ask_yes_no("Did you put dirty dishes in dishwasher? ")
-    if answer == "yes":
-        chores_done = chores_done + 1
+    for chore in chores:
+#       ask each chore
+        answer = ask_yes_no(f"Did you {chore}? ")
+#       if answer is yes:
+        if answer == "yes":
+#           add +1 to chores done
+            chores_done = chores_done + 1
     day_counter = day_counter + 1
-print(f"Chores completed: {chores_done}")
 
+print(f"Chores completed: {chores_done}")
 # calculate total for chores missed
 chores_missed = total_chores - chores_done
 # print total
