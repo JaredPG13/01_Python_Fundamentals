@@ -23,6 +23,10 @@ def ask_yes_no(question):
 chores_done = 0
 # start the day counter at 1
 day_counter = 1
+
+chores = ["clean the bathroom counter", "empty the clean dishwasher", "put dirty dishes in dishwasher"]
+total_chores = len(chores) * 5
+
 # loop while the day counter is <= 5:
 while day_counter <= 5:
 #   print which day it is
@@ -45,15 +49,15 @@ while day_counter <= 5:
 print(f"Chores completed: {chores_done}")
 
 # calculate total for chores missed
-chores_missed = 15 - chores_done
+chores_missed = total_chores - chores_done
 # print total
 print(f"Chores missed: {chores_missed}")
 # calculate percentage completed
-percentage_completed = round(chores_done/15 * 100)
+percentage_completed = round(chores_done/total_chores * 100)
 # print total
 print(f"Completed: {percentage_completed}%")
-# if chores completed equals 15
-if chores_done == 15:
+# if chores completed equals total chores
+if chores_done == total_chores:
 #   print $10
     print("Allowance: $10")
 # otherwise
