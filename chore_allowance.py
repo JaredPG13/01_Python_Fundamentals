@@ -27,6 +27,8 @@ days = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"]
 chores = ["clean your bathroom", "clean the kitchen", "pick up your room"]
 # total = number of chores x number of days
 total_chores = len(chores) * len(days)
+# create an empty list of missed chores
+missed = []
 
 # go through each day of the week
 for day in days:
@@ -40,6 +42,10 @@ for day in days:
         if answer == "yes":
 #           add +1 to chores done
             chores_done = chores_done + 1
+#       otherwise
+        else:
+#           add missed chore    
+            missed.append(f"{day}: {chore}")
 
 # print chores completed total
 print(f"Chores completed: {chores_done}")
@@ -47,6 +53,8 @@ print(f"Chores completed: {chores_done}")
 chores_missed = total_chores - chores_done
 # print chores missed total
 print(f"Chores missed: {chores_missed}")
+# print day and chore missed
+print(f"You missed: {missed}")
 # calculate percentage completed
 percentage_completed = round(chores_done/total_chores * 100)
 # print chores completed percentage
