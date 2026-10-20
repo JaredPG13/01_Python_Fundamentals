@@ -19,6 +19,7 @@ def ask_yes_no(question):
 #   hand back reply
     return reply
 
+
 # start a count of chores done at 0
 chores_done = 0
 # create a list of days Monday-Friday
@@ -34,7 +35,7 @@ missed = []
 for day in days:
 #   print which day it is
     print(f"--- {day} ---")
-#   ask about each chore  
+#   ask about each chore
     for chore in chores:
 #       ask each chore
         answer = ask_yes_no(f"Did you {chore}? ")
@@ -44,7 +45,7 @@ for day in days:
             chores_done = chores_done + 1
 #       otherwise
         else:
-#           add missed chore    
+#           add missed chore
             missed.append(f"{day}: {chore}")
 
 # print chores completed total
@@ -53,10 +54,19 @@ print(f"Chores completed: {chores_done}")
 chores_missed = total_chores - chores_done
 # print chores missed total
 print(f"Chores missed: {chores_missed}")
-# print day and chore missed
-print(f"You missed: {missed}")
+# if chores missed equals 0
+if chores_missed == 0:
+#   print encouraging message
+    print("You completed all chores! Great job!")
+# otherwise
+else:
+#   print what day and chore was missed
+    print("You missed:")
+#   list each missed chore
+    for missed_chore in missed:
+        print(missed_chore)
 # calculate percentage completed
-percentage_completed = round(chores_done/total_chores * 100)
+percentage_completed = round(chores_done / total_chores * 100)
 # print chores completed percentage
 print(f"Completed: {percentage_completed}%")
 # if chores completed equals total chores
