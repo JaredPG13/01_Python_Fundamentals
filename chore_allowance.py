@@ -21,16 +21,18 @@ def ask_yes_no(question):
 
 # start a count of chores done at 0
 chores_done = 0
-# start the day counter at 1
-day_counter = 1
+# create a list of days Monday-Friday
+days = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"]
+# create a list of chores
 chores = ["clean your bathroom", "clean the kitchen", "pick up your room"]
-total_chores = len(chores) * 5
+# total = number of chores x number of days
+total_chores = len(chores) * len(days)
 
-# loop while the day counter is <= 5:
-while day_counter <= 5:
+# go through each day of the week
+for day in days:
 #   print which day it is
-    print(f"--- Day {day_counter} ---")
-
+    print(f"--- {day} ---")
+#   ask about each chore  
     for chore in chores:
 #       ask each chore
         answer = ask_yes_no(f"Did you {chore}? ")
@@ -38,16 +40,16 @@ while day_counter <= 5:
         if answer == "yes":
 #           add +1 to chores done
             chores_done = chores_done + 1
-    day_counter = day_counter + 1
 
+# print chores completed total
 print(f"Chores completed: {chores_done}")
 # calculate total for chores missed
 chores_missed = total_chores - chores_done
-# print total
+# print chores missed total
 print(f"Chores missed: {chores_missed}")
 # calculate percentage completed
 percentage_completed = round(chores_done/total_chores * 100)
-# print total
+# print chores completed percentage
 print(f"Completed: {percentage_completed}%")
 # if chores completed equals total chores
 if chores_done == total_chores:
