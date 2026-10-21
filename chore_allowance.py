@@ -77,3 +77,7 @@ if chores_done == total_chores:
 else:
 #   print $0
     print("Allowance: $0")
+# save missed chores so they survive after the app closes
+with open("missed_chores.txt", "a") as file:
+    for missed_chore in missed:
+        file.write(f"{missed_chore}\n")
