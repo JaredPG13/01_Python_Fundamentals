@@ -3,3 +3,6 @@ __pycache__/
 .vscode/
 .venv/
 .env
+missed_chores.txt
+orders_log.txt
+test_note.txt
