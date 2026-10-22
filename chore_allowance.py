@@ -28,9 +28,13 @@ days = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"]
 chores = ["clean your bathroom", "clean the kitchen", "pick up your room"]
 # total = number of chores x number of days
 total_chores = len(chores) * len(days)
-# create an empty list of missed chores
-missed = []
-
+# load saved missed chores, or start empty if there's no file yet
+try:
+    with open("missed_chores.txt", "r") as file:
+        text = file.read()
+    missed = text.splitlines()
+except FileNotFoundError:
+    missed = []
 # go through each day of the week
 for day in days:
 #   print which day it is
@@ -78,6 +82,6 @@ else:
 #   print $0
     print("Allowance: $0")
 # save missed chores so they survive after the app closes
-with open("missed_chores.txt", "a") as file:
+with open("missed_chores.txt", "w") as file:
     for missed_chore in missed:
         file.write(f"{missed_chore}\n")
