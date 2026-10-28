@@ -19,15 +19,12 @@ def ask_yes_no(question):
 #   hand back reply
     return reply
 
-
 # start a count of chores done at 0
 chores_done = 0
 # create a list of days Monday-Friday
 days = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"]
 # create a list of chores
 chores = ["clean your bathroom", "clean the kitchen", "pick up your room"]
-# total = number of chores x number of days
-total_chores = len(chores) * len(days)
 # load saved missed chores, or start empty if there's no file yet
 try:
     with open("missed_chores.txt", "r") as file:
@@ -35,23 +32,35 @@ try:
     missed = text.splitlines()
 except FileNotFoundError:
     missed = []
-# go through each day of the week
-for day in days:
-#   print which day it is
-    print(f"--- {day} ---")
-#   ask about each chore
-    for chore in chores:
-#       ask each chore
-        answer = ask_yes_no(f"Did you {chore}? ")
-#       if answer is yes:
-        if answer == "yes":
-#           add +1 to chores done
-            chores_done = chores_done + 1
-#       otherwise
-        else:
-#           add missed chore
-            missed.append(f"{day}: {chore}")
-
+# load days done
+try:    
+    with open("days_done.txt", "r") as file:
+        text = file.read()
+    days_done = text.splitlines()
+except FileNotFoundError:
+    days_done = []
+# determine what day it is based on how many days done
+day = days[len(days_done)]
+# print which day it is
+print(f"--- {day} ---")
+# ask about each chore
+for chore in chores:
+#   ask each chore
+    answer = ask_yes_no(f"Did you {chore}? ")
+#   if answer is yes:
+    if answer == "yes":
+#       add +1 to chores done
+        chores_done = chores_done + 1
+#   otherwise
+    else:
+#       add missed chore
+        missed.append(f"{day}: {chore}")
+# add day done
+days_done.append(day)
+# calculate total chores
+total_chores = len(chores) * len(days_done)
+# calculate chores done
+chores_done = total_chores - len(missed)
 # print chores completed total
 print(f"Chores completed: {chores_done}")
 # calculate total for chores missed
@@ -85,3 +94,7 @@ else:
 with open("missed_chores.txt", "w") as file:
     for missed_chore in missed:
         file.write(f"{missed_chore}\n")
+# save days done so they survive after the app closes
+with open("days_done.txt", "w") as file:
+    for day in days_done:
+        file.write(f"{day}\n")
