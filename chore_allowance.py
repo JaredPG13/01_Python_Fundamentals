@@ -19,8 +19,7 @@ def ask_yes_no(question):
 #   hand back reply
     return reply
 
-# start a count of chores done at 0
-chores_done = 0
+
 # create a list of days Monday-Friday
 days = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"]
 # create a list of chores
@@ -47,13 +46,9 @@ print(f"--- {day} ---")
 for chore in chores:
 #   ask each chore
     answer = ask_yes_no(f"Did you {chore}? ")
-#   if answer is yes:
-    if answer == "yes":
-#       add +1 to chores done
-        chores_done = chores_done + 1
-#   otherwise
-    else:
-#       add missed chore
+#   if answer is no:
+    if answer == "no":
+#       add chore to missed
         missed.append(f"{day}: {chore}")
 # add day done
 days_done.append(day)
