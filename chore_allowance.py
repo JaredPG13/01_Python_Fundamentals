@@ -38,6 +38,10 @@ try:
     days_done = text.splitlines()
 except FileNotFoundError:
     days_done = []
+# if days done equals 5 clear days done and missed chores
+if len(days_done) == 5:
+    days_done = []
+    missed = []
 # determine what day it is based on how many days done
 day = days[len(days_done)]
 # print which day it is
@@ -77,14 +81,22 @@ else:
 percentage_completed = round(chores_done / total_chores * 100)
 # print chores completed percentage
 print(f"Completed: {percentage_completed}%")
-# if chores completed equals total chores
-if chores_done == total_chores:
-#   print $10
-    print("Allowance: $10")
-# otherwise
+# if the week is done
+if len(days_done) == 5:
+#   if chores done equals total chores
+    if chores_done == total_chores:
+#       print Allowance: $10
+        print("Allowance: $10")
+#   otherwise
+    else:
+#       print Allowance: $0
+        print("Allowance: $0")
+# midweek
 else:
-#   print $0
-    print("Allowance: $0")
+#   if chores done equals total chores
+    if chores_done == total_chores:
+#       print an encouraging message
+        print("You're doing great! Keep it going!")
 # save missed chores so they survive after the app closes
 with open("missed_chores.txt", "w") as file:
     for missed_chore in missed:
