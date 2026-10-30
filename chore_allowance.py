@@ -63,7 +63,7 @@ chores_done = total_chores - len(missed)
 # print chores completed total
 print(f"Chores completed: {chores_done}")
 # calculate total for chores missed
-chores_missed = total_chores - chores_done
+chores_missed = len(missed)
 # print chores missed total
 print(f"Chores missed: {chores_missed}")
 # if chores missed equals 0
