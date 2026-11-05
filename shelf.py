@@ -5,6 +5,13 @@ shelf = [
 ]
 reorder_names = []
 
+delivery_name = "Butter"
+delivery_amount = 12
+
+for product in shelf:
+    if product["product_name"] == delivery_name:
+        product["quantity"] = product["quantity"] + delivery_amount
+
 for product in shelf:
     print(f"{product['product_name']}: {product['quantity']} on shelf {product['shelf_location']}")
     if product["quantity"] <= product["reorder_level"]:
