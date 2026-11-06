@@ -1,3 +1,10 @@
+def find_reorders(products):
+    reorder_names = []
+    for product in products:
+        if product["quantity"] <= product["reorder_level"]:
+            reorder_names.append(product["product_name"])
+    return reorder_names
+
 shelf = [
     {"product_name": "Milk", "quantity": 20, "reorder_level": 2, "shelf_location": "D2"},
     {"product_name": "Eggs", "quantity": 5, "reorder_level": 7, "shelf_location": "E1"},
@@ -32,4 +39,6 @@ else:
         noun = "products"
         verb = "need"
     print(f"{len(reorder_names)} {noun} {verb} reordering: {', '.join(reorder_names)}")
-        
+
+test_reorders = find_reorders(shelf)
+print(test_reorders)
