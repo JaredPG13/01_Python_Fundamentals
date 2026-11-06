@@ -5,12 +5,16 @@ shelf = [
 ]
 reorder_names = []
 
-delivery_name = "Butter"
+delivery_name = "Cheese"
 delivery_amount = 12
 
+found = False
 for product in shelf:
     if product["product_name"] == delivery_name:
         product["quantity"] = product["quantity"] + delivery_amount
+        found = True
+if not found:
+    print(f"{delivery_name} isn't on any shelf. Something's wrong with this delivery.")
 
 for product in shelf:
     print(f"{product['product_name']}: {product['quantity']} on shelf {product['shelf_location']}")
