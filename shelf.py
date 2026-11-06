@@ -6,10 +6,17 @@ def find_reorders(products):
     return reorder_names
 
 shelf = [
-    {"product_name": "Milk", "quantity": 20, "reorder_level": 2, "shelf_location": "D2"},
-    {"product_name": "Eggs", "quantity": 5, "reorder_level": 7, "shelf_location": "E1"},
-    {"product_name": "Butter", "quantity": 10, "reorder_level": 15, "shelf_location": "B3"},
+    {"product_name": "Milk", "quantity": 20, "reorder_level": 2, "shelf_location": "P1"},
+    {"product_name": "Eggs", "quantity": 5, "reorder_level": 7, "shelf_location": "P2"},
+    {"product_name": "Butter", "quantity": 10, "reorder_level": 15, "shelf_location": "P3"},
 ]
+
+pantry = [
+    {"product_name": "Rice", "quantity": 3, "reorder_level": 5, "shelf_location": "P1"},
+    {"product_name": "Flour", "quantity": 12, "reorder_level": 4, "shelf_location": "P2"},
+    {"product_name": "Pasta", "quantity": 15, "reorder_level": 10, "shelf_location": "P3"},
+]
+
 reorder_names = []
 
 delivery_name = "Cheese"
@@ -42,3 +49,6 @@ else:
 
 test_reorders = find_reorders(shelf)
 print(test_reorders)
+
+pantry_reorders = find_reorders(pantry)
+print(pantry_reorders)
