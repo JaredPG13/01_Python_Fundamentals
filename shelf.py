@@ -10,7 +10,7 @@ delivery_amount = 12
 
 found = False
 for product in shelf:
-    if product["product_name"] == delivery_name:
+    if product["product_name"].lower() == delivery_name.lower():
         product["quantity"] = product["quantity"] + delivery_amount
         found = True
 if not found:
