@@ -5,6 +5,16 @@ def find_reorders(products):
             reorder_names.append(product["product_name"])
     return reorder_names
 
+def add_delivery(products, delivery_name, delivery_amount):
+    found = False
+    for product in products:
+        if product["product_name"].lower() == delivery_name.lower():
+            product["quantity"] = product["quantity"] + delivery_amount
+            found = True
+    if not found:
+        print(f"{delivery_name} isn't on any shelf. Something's wrong with this delivery.")
+    return found
+
 
 shelf = [
     {"product_name": "Milk", "quantity": 20, "reorder_level": 2, "shelf_location": "P1"},
@@ -21,13 +31,7 @@ pantry = [
 delivery_name = "butter"
 delivery_amount = 12
 
-found = False
-for product in shelf:
-    if product["product_name"].lower() == delivery_name.lower():
-        product["quantity"] = product["quantity"] + delivery_amount
-        found = True
-if not found:
-    print(f"{delivery_name} isn't on any shelf. Something's wrong with this delivery.")
+matched = add_delivery(shelf, delivery_name, delivery_amount)
 
 reorder_names = find_reorders(shelf)
 
@@ -45,5 +49,6 @@ else:
         verb = "need"
     print(f"{len(reorder_names)} {noun} {verb} reordering: {', '.join(reorder_names)}")
 
+add_delivery(pantry, "Rice", 6)
 pantry_reorders = find_reorders(pantry)
 print(pantry_reorders)
