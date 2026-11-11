@@ -51,3 +51,26 @@ def send_reminder(patient, doctor):
 
 send_reminder("Ana", "Dr. Patel")
 send_reminder("Ben", "Dr. Lopez")
+
+def todays_special():
+    return "Pumpkin latte"
+
+todays_special()
+print(todays_special())
+
+def show_special():
+    print("Pumpkin latte")
+
+def give_special():
+    return "Pumpkin latte"
+
+show_special()
+give_special()
+
+
+
+def find_dock():
+    return "Dock 7"
+
+find_dock()
+print(find_dock())
