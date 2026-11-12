@@ -88,3 +88,30 @@ def find_bread(bread_name):
     return bread_name
 
 print(find_bread("Sourdough"))
+
+
+def find_shelf_code(item, shelf_code):
+    return shelf_code
+
+find_shelf_code("Packing tape", "C-14")
+print(find_shelf_code("Packing tape", "C-14"))
+
+
+def make_drink(drink):
+    return drink
+
+order = make_drink("Cold brew")
+print(order)
+print(order)
+
+ready = make_drink("Iced tea")
+print(make_drink("Latte"))
+print(ready)
+
+
+def find_exam_room(patient_name, exam_room):
+    return exam_room
+
+patient_room = find_exam_room("Maya", "Room 5")
+print(patient_room)
+print(patient_room)
