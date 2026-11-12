@@ -115,3 +115,28 @@ def find_exam_room(patient_name, exam_room):
 patient_room = find_exam_room("Maya", "Room 5")
 print(patient_room)
 print(patient_room)
+
+
+def find_order_number(order_number, name_of_packer):
+    return order_number
+
+luis_order = find_order_number("Order 1042", "Luis")
+kim_order = find_order_number("Order 1043", "Kim")
+
+print(kim_order)
+print(luis_order)
+
+
+def call_customer_name(customer_name, drink):
+    return customer_name
+
+name_to_call = call_customer_name("Ava", "Mocha")
+print(f"Now calling: {name_to_call}")
+print(call_customer_name("Leo", "Chai"))
+
+
+def seat_guest(guest, table):
+    return table
+
+nina_table = seat_guest("Nina", "Table 8")
+print(nina_table)
