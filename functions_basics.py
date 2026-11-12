@@ -140,3 +140,18 @@ def seat_guest(guest, table):
 
 nina_table = seat_guest("Nina", "Table 8")
 print(nina_table)
+
+
+def assign_room(guest, room):
+    return room
+
+kai_room = assign_room("Kai", "Room 210")
+print(kai_room)
+
+
+def find_service_bay(customer_name, bay):
+    return bay
+
+assigned_bay = find_service_bay("Marcus", "Bay 3")
+print(f"Drive to: {assigned_bay}")
+print(assigned_bay)
