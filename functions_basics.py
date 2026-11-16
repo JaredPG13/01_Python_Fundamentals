@@ -155,3 +155,27 @@ def find_service_bay(customer_name, bay):
 assigned_bay = find_service_bay("Marcus", "Bay 3")
 print(f"Drive to: {assigned_bay}")
 print(assigned_bay)
+
+
+def greet_all(names):
+    greetings = []
+    for name in names:
+        greetings.append(f"Welcome, {name}!")
+    return greetings
+
+tonight_guests = ["Ava", "Ben", "Cruz"]
+guest_greetings = greet_all(tonight_guests)
+print(guest_greetings)
+
+
+def make_tags(bread_names, price):
+    tags = []
+    for bread in bread_names:
+        tags.append(f"{bread}: ${price}")
+    return tags
+
+all_bread = ["Sourdough", "Rye", "Brioche"]
+price = 6
+shelf_tags = make_tags(all_bread, price)
+print(shelf_tags)
+
