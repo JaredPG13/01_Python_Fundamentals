@@ -179,3 +179,36 @@ price = 6
 shelf_tags = make_tags(all_bread, price)
 print(shelf_tags)
 
+
+def boxes_for_truck(shipments, truck_name):
+    truck_boxes = []
+    for shipment in shipments:
+        if shipment["truck"] == truck_name:
+            truck_boxes.append(shipment["box"])
+    return truck_boxes
+
+todays_shipments = [
+    {"box": "A12", "truck": "North"},
+    {"box": "B07", "truck": "South"},
+    {"box": "C33", "truck": "North"},
+]
+north_boxes = boxes_for_truck(todays_shipments, "North")
+print(north_boxes)
+
+
+def find_by_doctor(appointments, doctor_name):
+    patient_names = []
+    for appointment in appointments:
+        if appointment["doctor"] == doctor_name:
+            patient_names.append(appointment["name"])
+    return patient_names
+
+schedule = [
+    {"name": "Ana", "doctor": "Patel", "checked_in": False},
+    {"name": "Ben", "doctor": "Lee", "checked_in": True},
+    {"name": "Cruz", "doctor": "Patel", "checked_in": True},
+    {"name": "Dee", "doctor": "Lee", "checked_in": False},
+]
+
+patel_patients = find_by_doctor(schedule, "Patel")
+print(patel_patients)
