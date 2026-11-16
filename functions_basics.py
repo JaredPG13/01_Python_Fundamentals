@@ -192,6 +192,7 @@ todays_shipments = [
     {"box": "B07", "truck": "South"},
     {"box": "C33", "truck": "North"},
 ]
+
 north_boxes = boxes_for_truck(todays_shipments, "North")
 print(north_boxes)
 
@@ -212,3 +213,20 @@ schedule = [
 
 patel_patients = find_by_doctor(schedule, "Patel")
 print(patel_patients)
+
+
+def titles_on_shelf(books, shelf_name):
+    titles = []
+    for book in books:
+        if book["shelf"] == shelf_name:
+            titles.append(book["title"])
+    return titles
+
+returned_books = [
+    {"title": "Dune", "shelf": "Sci-Fi"},
+    {"title": "Emma", "shelf": "Classics"},
+    {"title": "Neuromancer", "shelf": "Sci-Fi"},
+]
+
+sci_fi_titles = titles_on_shelf(returned_books, "Sci-Fi")
+print(sci_fi_titles)
